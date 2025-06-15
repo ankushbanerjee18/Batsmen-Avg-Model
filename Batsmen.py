@@ -1,4 +1,4 @@
-# Creating a Cricket Batsmen database along with visualisation
+## Creating a Cricket Batsmen database along with visualisation
 def batsman():
     import pandas as pd
     import matplotlib.pyplot as plt
@@ -23,10 +23,11 @@ def batsman():
             out = out+outs
             print("\n")
         if out == 0:
-            average = ("Infinity")
+            average = "infinity"
         else:
             average = total/out
         scores['Total Runs']=total
+        scores['Outs']=out
         scores['Average'] = average
         print("\n")
         print(f"The average of the {name} is {average}")
@@ -42,12 +43,15 @@ def batsman():
     print("Now a bar graph shall be created for a batsman of your choice")
     df_edit = df.drop('Total Runs')
     number = int(input("Enter the column number of your prefferd batsman from the table"))
-    sns.barplot(data=df_edit, x=df_edit.index, y=df_edit.columns[number-1])
-    batsman_name = df_edit.columns[number-1]
-    plt.title(f"Runs scored by {batsman_name} ")
+    try:
+        sns.barplot(data=df_edit, x=df_edit.index, y=df_edit.columns[number-1])
+        batsman_name = df_edit.columns[number-1]
+        plt.title(f"{batsman_name}'s Statistics ")
+    except:
+        print("The average is infinity, hence it cannot be plotted")
 
     print("\n")
     print("Your data is also exported as a CSV file")
     df.to_csv("bat.csv")
-    batsman()
-    
+
+batsman()
