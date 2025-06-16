@@ -41,7 +41,7 @@ def batsman():
     print(df)
     print("\n")
     print("Now a bar graph shall be created for a batsman of your choice")
-    df_edit = df.drop('Total Runs')
+    df_edit = df.drop(['Total Runs', 'Outs'])
     number = int(input("Enter the column number of your prefferd batsman from the table"))
     try:
         sns.barplot(data=df_edit, x=df_edit.index, y=df_edit.columns[number-1])
