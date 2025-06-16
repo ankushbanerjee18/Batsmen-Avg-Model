@@ -1,4 +1,6 @@
-## Creating a Cricket Batsmen database along with visualisation
+## Creating a Cricket Batsmen database along with visualisation.
+## The user inputs all the data for the batsman match wise and the model calculates the average.
+## Further, the model asks for a preferred batsman at the end for whom a visualisation is prepared.
 def batsman():
     import pandas as pd
     import matplotlib.pyplot as plt
