@@ -48,6 +48,9 @@ def batsman():
         batsman_name = df_edit.columns[number-1]
         plt.title(f"{batsman_name}'s Statistics ")
     except:
+        df_edit2 = df_edit.drop("Average")
+        sns.barplot(data=df_edit2, x=df_edit2.index, y=df_edit2.columns[number-1])
+        print("\n")
         print("The average is infinity, hence it cannot be plotted")
 
     print("\n")
